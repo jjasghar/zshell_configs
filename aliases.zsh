@@ -45,3 +45,23 @@ fi
 # -------------------------------------------------------------------
 alias e='emacsclient -n'
 alias emacs='emacsclient -n'
+
+#
+# vccode
+#
+alias c='code'
+
+#
+# md2word
+#
+
+alias md2word=md2word
+function md2word () {
+    PANDOC_INSTALLED=$(pandoc --version >> /dev/null; echo $?)
+
+    if [[ ${PANDOC_INSTALLED} == "0" ]]; then
+        pandoc -o $2 -f markdown -t docx $1
+    else
+        echo "Pandoc is not installed. Unable to convert document."
+    fi
+}

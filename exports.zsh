@@ -44,8 +44,9 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 
 # GO Path
 export GOPATH=$HOME/golang
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # rust path
 source $HOME/.cargo/env
@@ -54,7 +55,20 @@ source $HOME/.cargo/env
 [ -f /Users/jjasghar/.travis/travis.sh ] && source /Users/jjasghar/.travis/travis.sh
 
 # remote docker/photo instance
-export DOCKER_HOST=tcp://10.0.0.181:2375
+#export DOCKER_HOST=tcp://10.0.0.181:2375
 
 #### zshell imports
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+### cloud exports
+source /Users/jjasghar/Downloads/google-cloud-sdk/completion.zsh.inc
+source /Users/jjasghar/Downloads/google-cloud-sdk/path.zsh.inc
+
+# kubectl completion
+source <(kubectl completion zsh)
+
+# docker completion
+fpath=(~/.zsh/completion $fpath)
+
+# gpg TTY
+export GPG_TTY=$(tty)

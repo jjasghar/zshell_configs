@@ -65,3 +65,19 @@ function md2word () {
         echo "Pandoc is not installed. Unable to convert document."
     fi
 }
+
+
+# -------------------------------------------------------------------
+# Cloud stuff
+# -------------------------------------------------------------------
+
+alias gcp_create="gcloud compute instances create temp-`date +%F` --image-project=ubuntu-1604-lts --machine-type g1-small && gcloud compute ssh temp-`date +%F`"
+alias gcp_delete="gcloud compute instances delete temp-`date +%F`"
+alias gist='gist -c -p'
+
+# -------------------------------------------------------------------
+# git stuff
+# -------------------------------------------------------------------
+
+alias hb="hub browse"
+alias hpr="hub pull-request"

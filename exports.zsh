@@ -1,6 +1,8 @@
 # Currently this path is appended to dynamically when picking a ruby version
 # zshenv has already started PATH with rbenv so append only here
 export PATH=$PATH~/bin:/usr/local/bin:/usr/local/sbin:~/bin
+# istio application
+export PATH="$PATH:/home/jj/repo/workshops/istio-workshop/istio-1.0.2/bin"
 
 # Set default console Java to 1.6
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
@@ -9,10 +11,6 @@ export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
-
-# Enable color in grep
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='3;33'
 
 # This resolves issues install the mysql, postgres, and other gems with native non universal binary extensions
 export ARCHFLAGS='-arch x86_64'
@@ -33,42 +31,16 @@ fi
 # added by travis gem
 [ -f /Users/jasghar/.travis/travis.sh ] && source /Users/jasghar/.travis/travis.sh
 
-# direnv eval to make it happy
-eval "$(direnv hook zsh)"
-
-# keys because keys
-source '/Users/jjasghar/keys'
-
-# chruby stuff
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-
 # GO Path
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/repo/golang/
 export PATH=$PATH:$GOROOT/bin
-
-# rust path
-source $HOME/.cargo/env
 
 # added by travis gem
 [ -f /Users/jjasghar/.travis/travis.sh ] && source /Users/jjasghar/.travis/travis.sh
-
-# remote docker/photo instance
-#export DOCKER_HOST=tcp://10.0.0.181:2375
-
-#### zshell imports
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-### cloud exports
-source /Users/jjasghar/Downloads/google-cloud-sdk/completion.zsh.inc
-source /Users/jjasghar/Downloads/google-cloud-sdk/path.zsh.inc
 
 # kubectl completion
 source <(kubectl completion zsh)
 
 # docker completion
 fpath=(~/.zsh/completion $fpath)
-
-# gpg TTY
-export GPG_TTY=$(tty)

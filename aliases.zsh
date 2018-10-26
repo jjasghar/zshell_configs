@@ -1,4 +1,10 @@
 # -------------------------------------------------------------------
+# k8s and all aliases
+# -------------------------------------------------------------------
+alias k='kubectl'
+
+
+# -------------------------------------------------------------------
 # use nocorrect alias to prevent auto correct from "fixing" these
 # -------------------------------------------------------------------
 #alias foobar='nocorrect foobar'
@@ -74,6 +80,9 @@ function md2word () {
 alias gcp_create="gcloud compute instances create temp-`date +%F` --image-project=ubuntu-1604-lts --machine-type g1-small && gcloud compute ssh temp-`date +%F`"
 alias gcp_delete="gcloud compute instances delete temp-`date +%F`"
 alias gist='gist -c -p'
+
+alias tirefire_vpn='cd ~/openvpn/tirefire/ && sudo openvpn --config pfSense-udp-1194.ovpn'
+alias home_vpn='cd ~/openvpn/home/ && sudo openvpn --config who-UDP4-1194-jj-config.ovpn'
 
 # -------------------------------------------------------------------
 # git stuff
